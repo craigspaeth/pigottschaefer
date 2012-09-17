@@ -1,0 +1,25 @@
+{
+  "name": "pigottschaefer.com",
+  "subdomain": "pigottschaefer",
+  "domains": [
+    "pigottschaefer.com",
+    "www.pigottschaefer.com"
+  ],
+  "version": "0.0.1-21",
+  "private": true,
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "dependencies": {
+    "jade": "*",
+    "stylus": "*",
+    "coffee-script": "*",
+    "nap": "*",
+    "underscore": "*",
+    "connect": "*"
+  },
+  "scripts": {
+    "start": "coffee app.coffee"
+  }
+}
