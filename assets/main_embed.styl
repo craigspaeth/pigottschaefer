@@ -48,17 +48,24 @@ header
   .preamble
     font-size 11px
     letter-spacing 1px
-    padding 30px 0 15px 0
+    padding 30px 0 20px 0
     text-transform uppercase
   a
     uppercase()
     letter-spacing 0
     color red
     text-decoration none
-    padding 0 10px
+    margin 0 15px
+    padding 10px 0 4px 30px
+    &.facebook
+      background url('/images/facebook.png') no-repeat left center
+    &.twitter
+      background url('/images/twitter.png') no-repeat left center
+    &:hover
+      border-bottom 2px solid
 
 #images
-  width 50000px
+  width 16000px
   clearfix()
   img
     height 500px

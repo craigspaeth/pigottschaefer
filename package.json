@@ -5,7 +5,7 @@
     "pigottschaefer.com",
     "www.pigottschaefer.com"
   ],
-  "version": "0.0.1-28",
+  "version": "0.0.1-30",
   "private": true,
   "engines": {
     "node": "0.8.x",
