@@ -28,7 +28,7 @@ nap
 
 app.get "/", (req, res) -> res.render 'index'
 
-nap.package()
+nap.package() if process.env.NODE_ENV is 'production'
 
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
