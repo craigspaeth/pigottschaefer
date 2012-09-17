@@ -1,41 +1,32 @@
-http = require 'http'
-fs = require 'fs'
-jade = require 'jade'
-stylus = require 'stylus'
-coffee = require 'coffee-script'
-nap = require 'nap'
-_ = require 'underscore'
-connect = require 'connect'
+express = require("express")
+http = require("http")
+path = require("path")
+app = express()
+global.nap = require 'nap'
 
-# Compile assets
-compile = ->
-  nap
-    mode: 'production'
-    embedFonts: true
-    assets:
-        js:
-          all: ['/assets/main.coffee']
-        css:
-          all: ['/assets/main_embed.styl']
-  nap.package()
-  for file in fs.readdirSync('./public/assets/')
-    js = fs.readFileSync('./public/assets/' + file) if file.match /\.js$/
-    css = fs.readFileSync('./public/assets/' + file) if file.match /\.css$/
-  html = jade.compile(fs.readFileSync './assets/main.jade')
-    js: js
-    css: css
+app.configure ->
+  app.set "port", process.env.PORT or 3000
+  app.set "views", __dirname + "/views"
+  app.set "view engine", "jade"
+  app.use express.favicon()
+  app.use express.logger("dev")
+  app.use express.bodyParser()
+  app.use express.methodOverride()
+  app.use app.router
+  app.use express.static(path.join(__dirname, "public"))
 
-# Make function that either compiles the template in dev or caches in production
-html = ->
-  unless process.env.NODE_ENV is 'production'
-    compile()
-  else
-    @html ?= compile()
-  
-# Start a server that just serves up static assets and the compiled html
-port = if process.env.NODE_ENV is 'production' then 80 else 4000
-app = connect().use(nap.middleware).use(connect.static("public")).use((req, res) ->
-  res.writeHead 200, "Content-Type": "text/HTML"
-  res.end html()
-).listen(port)
-console.log "NODE_ENV is #{process.env.NODE_ENV}, listening on #{port}"
+app.configure "development", ->
+  app.use express.errorHandler()
+
+nap
+  embedFonts: true
+  assets:
+      js:
+        all: ['/assets/main.coffee']
+      css:
+        all: ['/assets/main_embed.styl']
+
+app.get "/", (req, res) -> res.render 'index'
+
+http.createServer(app).listen app.get("port"), ->
+  console.log "Express server listening on port " + app.get("port")
