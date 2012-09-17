@@ -12,36 +12,56 @@ uppercase()
 
 body
   font-family 'Helvetica', 'Arial', 'sans-serif'
+  font-size 14px
   color #444
 
 header
   clearfix()
   padding 10px
-  
+  width 100%
+  box-sizing border-box
   #logo, nav
     float left
 
   #logo
     background url('/images/logo.png') no-repeat left center
     width @height
-    padding 20px
-    padding-left 80px
+    padding 10px
+    padding-left 60px
     color red
     uppercase()
   
   nav
-    padding 20px
+    padding 10px
     a
-      padding 0 20px
+      padding 0 10px
+      font-size 14px
       uppercase()
       letter-spacing 0px
       &:first-child
         padding-left 0
-        
+
+#social
+  padding 20px
+  text-align center
+  .preamble
+    font-size 11px
+    letter-spacing 1px
+    padding 30px 0 15px 0
+    text-transform uppercase
+  a
+    uppercase()
+    letter-spacing 0
+    color red
+    text-decoration none
+    padding 0 10px
+
 #portfolio
-  background url('/images/bg.jpg')
-  background-size auto 100%
-  height  100%
-  width 6000px
-  position fixed
-  top 80px
+  width 100%
+  overflow-x scroll
+  box-sizing border-box
+  #bg
+    height 500px
+    background url('/images/bg.jpg') no-repeat
+    background-size auto 100%
+  
