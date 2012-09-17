@@ -9,7 +9,6 @@ connect = require 'connect'
 
 # Config assets
 nap
-  embedFonts: true
   assets:
     js:
       all: ['/assets/main.coffee']
@@ -24,7 +23,6 @@ html = ->
     @html ?= jade.compile(fs.readFileSync './assets/main.jade')()
   
 # Start a server that just serves up static assets and the compiled html
-console.log process.env.NODE_ENV
 port = if process.env.NODE_ENV is 'production' then 80 else 4000
 app = connect().use(nap.middleware).use(connect.static("public")).use((req, res) ->
   res.writeHead 200, "Content-Type": "text/HTML"
