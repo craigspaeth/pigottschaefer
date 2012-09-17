@@ -3,24 +3,34 @@ fs = require 'fs'
 jade = require 'jade'
 stylus = require 'stylus'
 coffee = require 'coffee-script'
-global.nap = require 'nap'
+nap = require 'nap'
 _ = require 'underscore'
 connect = require 'connect'
 
-# Config assets
-nap
-  assets:
-    js:
-      all: ['/assets/main.coffee']
-    css:
-      all: ['/assets/main_embed.styl']
+# Compile assets
+compile = ->
+  nap
+    mode: 'production'
+    embedFonts: true
+    assets:
+        js:
+          all: ['/assets/main.coffee']
+        css:
+          all: ['/assets/main_embed.styl']
+  nap.package()
+  for file in fs.readdirSync('./public/assets/')
+    js = fs.readFileSync('./public/assets/' + file) if file.match /\.js$/
+    css = fs.readFileSync('./public/assets/' + file) if file.match /\.css$/
+  html = jade.compile(fs.readFileSync './assets/main.jade')
+    js: js
+    css: css
 
 # Make function that either compiles the template in dev or caches in production
 html = ->
   unless process.env.NODE_ENV is 'production'
-    jade.compile(fs.readFileSync './assets/main.jade')()
+    compile()
   else
-    @html ?= jade.compile(fs.readFileSync './assets/main.jade')()
+    @html ?= compile()
   
 # Start a server that just serves up static assets and the compiled html
 port = if process.env.NODE_ENV is 'production' then 80 else 4000
