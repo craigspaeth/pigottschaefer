@@ -6,3 +6,4 @@
 * Include videos
 * Business card modal
 * Zoom into images
+* SEO
