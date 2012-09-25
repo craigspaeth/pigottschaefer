@@ -30,9 +30,10 @@ header
 
   #logo
     background url('/images/logo.png') no-repeat left center
-    padding 10px
-    padding-left 60px
     color red
+    width 40px
+    height 40px
+    float left
     uppercase()
   
   nav
@@ -43,22 +44,51 @@ header
       uppercase()
       letter-spacing 0px
       cursor pointer
-      transition color 0.3s
-      &:hover
-        color black
+      transition color 0.3s  
+      &:hover, &.highlighted
+        color red
         padding-bottom 3px
+      &:hover  
         border-bottom 2px solid
       &:first-child
         padding-left 0
 
 #modal
-  background rgba(0,0,0,0.5)
-  position fixed
+  background rgba(0,0,0,0.8)
+  position absolute
   top 0
   left 0
   width 100%
   height 100%
-  z-index 2
+  z-index 5
+  padding 20px 50px 50px 50px
+  box-sizing border-box
+  display none
+  cursor pointer
+  .image_container
+    text-align center
+    max-width 100%
+    box-sizing border-box
+  .image
+    max-width 100%
+    height 100%
+    display inline-block
+    z-index 3
+    box-sizing border-box
+    position relative
+    cursor default
+    img
+      max-width 100%
+      max-height 100%
+    .close
+      background url('/images/close_dialog.png') no-repeat center center
+      height 50px
+      width 50px
+      position absolute
+      top -20px
+      right -20px
+      cursor pointer
+      
 #social
   padding 20px
   text-align center
@@ -89,6 +119,8 @@ header
     height 450px
     display block
     float left
+    cursor -webkit-zoom-in
+    cursor -moz-zoom-in
 
 #portfolio
   width 100%

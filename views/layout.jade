@@ -4,8 +4,9 @@ html
     != nap.css('all')
   body
     header
-      a#logo( href='/' ) Pigott/Schaefer
+      #logo
       nav
+        a( href='/' ) Pigott/Schaefer
         a( href='/rr' ) Russell Reserve
         a Contact
     #content
@@ -14,7 +15,11 @@ html
       .preamble Follow us on
       a.facebook( href='http://www.facebook.com/pages/PIGOTTSCHAEFER/462179687138825', _target='blank' ) Facebook
       a.twitter( href='https://twitter.com/pigott_schaefer', _target='blank' ) Twitter
+    #modal
+      .image_container
+        .image
+          img
+          .close
     #scripts
       script( src='//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js' )
-      script( src='//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js' )
       != nap.js('all')
