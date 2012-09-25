@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  #portfolio
+    #images( style='width: 16700px' )
+      for nil, i in new Array(24)
+        img( src='/images/portfolio/rr/' + (i + 1) + '.png' )

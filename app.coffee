@@ -26,6 +26,7 @@ nap
         all: ['/assets/main_embed.styl']
 
 app.get "/", (req, res) -> res.render 'index'
+app.get "/rr", (req, res) -> res.render 'russel_reserve'
 
 nap.package() if process.env.NODE_ENV is 'production'
 

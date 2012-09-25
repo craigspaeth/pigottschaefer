@@ -1,21 +1,7 @@
-!!! 5
-html
-  head
-    != nap.css('all')
-  header
-    #logo Pigott/Schaefer
-    //- nav
-      //- a Russell Reserve
-      //- a Video
+extends layout
+
+block content
   #portfolio
     #images
       for nil, i in new Array(31)
         img( src='/images/portfolio/' + i + '.jpg' )
-  #social
-    .preamble Follow us on
-    a.facebook( href='http://www.facebook.com/pages/PIGOTTSCHAEFER/462179687138825', _target='blank' ) Facebook
-    a.twitter( href='https://twitter.com/pigott_schaefer', _target='blank' ) Twitter
-  #scripts
-    script( src='//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js' )
-    script( src='//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js' )
-    != nap.js('all')
