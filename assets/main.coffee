@@ -11,7 +11,7 @@ $ ->
     false
     
   # Clicking on an image blows it up
-  blowUpImg = ($img) ->
+  window.blowUpImg = ($img) ->
     $('#modal .image img').attr 'src', $img.attr('src')
     $('#modal').fadeIn 150
     $('body').css overflow: 'hidden'
@@ -24,4 +24,8 @@ $ ->
     $modal.fadeOut 150
     $('body').css overflow: 'visible'
     
-  # Arrow through the images like a slideshow
+  # Clicking on the card blows it up
+  $('a.contact').click -> 
+    blowUpImg $("<img src='/images/card.png'>")
+    $('nav a').removeClass 'highlighted'
+    $(@).addClass 'highlighted'

@@ -20,11 +20,11 @@ body
     text-decoration none
 
 header
-  clearfix()
   padding 10px
   width 100%
-  height 56px
   box-sizing border-box
+  clearfix()
+  
   #logo, nav
     float left
 
@@ -34,12 +34,13 @@ header
     width 40px
     height 40px
     float left
+    display block
     uppercase()
   
   nav
-    padding 10px
+    padding 13px 10px
     a
-      margin 0 10px
+      margin 0 15px
       font-size 14px
       uppercase()
       letter-spacing 0px
@@ -51,7 +52,7 @@ header
       &:hover  
         border-bottom 2px solid
       &:first-child
-        padding-left 0
+        margin-left 0
 
 #modal
   background rgba(0,0,0,0.8)
@@ -88,6 +89,9 @@ header
       top -20px
       right -20px
       cursor pointer
+  #card
+    display none
+    max-width 900px
       
 #social
   padding 20px
@@ -130,7 +134,7 @@ header
     height 500px
     background url('/images/bg.jpg') no-repeat
     background-size auto 100%
-    
+
 #portfolio
   &::-webkit-scrollbar
   &::-moz-scrollbar
