@@ -41,5 +41,5 @@ $ ->
     if left
       $nextImg = $_img.prev()
     if right
-      $nextImg = $_img.next()
+      $nextImg = $_img.next() || $('#images img:last')
     blowUpImg $nextImg
