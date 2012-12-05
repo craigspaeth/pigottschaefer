@@ -5,7 +5,7 @@
     "pigottschaefer.com",
     "www.pigottschaefer.com"
   ],
-  "version": "0.0.1-41",
+  "version": "0.0.1-44",
   "private": true,
   "engines": {
     "node": "0.8.x",
@@ -15,6 +15,7 @@
     "express": "3.0.0rc4",
     "jade": "*",
     "stylus": "*",
+    "nib": "*",
     "coffee-script": "*",
     "nap": "*",
     "underscore": "*",
