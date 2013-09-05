@@ -20,8 +20,5 @@
     "nap": "*",
     "underscore": "*",
     "connect": "*"
-  },
-  "scripts": {
-    "start": "coffee app.coffee"
   }
 }
